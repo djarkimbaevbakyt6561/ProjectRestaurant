@@ -1,5 +1,7 @@
 package peaksoft.repositories;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import peaksoft.entities.User;
@@ -18,5 +20,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
         return findByEmail(email).orElseThrow(() ->
                 new NotFoundException("User with email: " + email + " not found!"));
     }
+    Page<User> findAllByRestaurantId(Long restaurantId, Pageable pageable);
 
 }

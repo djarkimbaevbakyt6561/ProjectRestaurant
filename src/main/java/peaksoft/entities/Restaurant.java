@@ -23,7 +23,7 @@ public class Restaurant {
     private String restType;
     @Column(name = "number_of_employees")
     private Byte numberOfEmployees;
-    private String service;
+    private Byte service;
 
     @OneToMany(mappedBy = "restaurant")
     private List<User> users;

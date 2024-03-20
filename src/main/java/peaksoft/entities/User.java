@@ -37,9 +37,9 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
     private Byte experience;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Restaurant restaurant;
-    @OneToMany(mappedBy = "user",cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<Cheque> cheques;
 
     @Override
